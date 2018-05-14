@@ -15,11 +15,9 @@
     <link href="{{ asset('css/portal/jquery.fancybox.css') }}" rel="stylesheet">
     <link href="{{ asset('css/portal/flexslider.css') }}" rel="stylesheet">
     <link href="{{ asset('css/portal/style.css') }}" rel="stylesheet">
-    <!-- Scripts -->
-    <script src="{{ asset('js/portal/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/portal/layer.min.js') }}"></script>
-    <link href="{{ asset('css/portal/layer.css') }}" rel="stylesheet" id="layuicss-skinlayercss">
+    <link href="{{ asset('css/portal/layer.css') }}" rel="stylesheet">
     <link href="{{ asset('css/portal/layer.min.css') }}" rel="stylesheet">
+
 
     <!-- Scripts -->
     <script>
@@ -33,4 +31,6 @@
     @yield('content')
     @include('portal.footer')
 </body>
+<script src="{{ asset('/js/portal/jquery.min.js') }}"></script>
+<script src="{{ asset('/js/portal/layer.min.js') }}"></script>
 </html>

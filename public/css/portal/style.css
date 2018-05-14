@@ -1,6 +1,6 @@
 @import url('http://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:400,600,700'); 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900');
-@import url('font-awesome.css');  
+@import url(/css/portal/font-awesome.min.css');
 @import url('animate.css');
 
 body {
@@ -288,14 +288,12 @@ header ul.nav li a {
 	font-size: 13px;
 	border:none;
 	font-weight: 600;
-	text-transform:uppercase;
 }
 
 header ul.nav li ul li a {	
 	font-size:12px;
 	border:none;
 	font-weight:300;
-	text-transform:uppercase;
 }
 
 

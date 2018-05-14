@@ -10,19 +10,20 @@
                 </ol>
                 <div class="log_regs">
 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                    <form class="form-horizontal" role="form" method="POST" onsubmit="return chkreg();"
+                          action="{{ url('/register') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('nickname') ? ' has-error' : '' }}">
-                            <label for="nickname" class="col-sm-2 control-label">用户名</label>
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="name" class="col-sm-2 control-label">用户名</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="nickname"
-                                       value="{{ old('nickname') }}" placeholder="请输入您的用户名" autofocus>
+                                <input id="name" type="text" class="form-control" name="name"
+                                       value="{{ old('name') }}" placeholder="请输入您的用户名" autofocus>
 
-                                @if ($errors->has('nickname'))
+                                @if ($errors->has('name'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('nickname') }}</strong>
+                                        <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -107,7 +108,7 @@
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email"
-                                       value="{{ old('email') }}" placeholder="请输入邮箱" >
+                                       value="{{ old('email') }}" placeholder="请输入邮箱">
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -117,16 +118,16 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('verifycode') ? ' has-error' : '' }}">
-                            <label for="verifycode" class="col-sm-2 control-label">验证码</label>
+                        <div class="form-group{{ $errors->has('captcha') ? ' has-error' : '' }}">
+                            <label for="captcha" class="col-sm-2 control-label">验证码</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="verifycode"
-                                       value="{{ old('verifycode') }}" placeholder="请输入验证码">
+                                <input id="email" type="text" class="form-control" name="captcha"
+                                       value="{{ old('captcha') }}" placeholder="请输入验证码">
 
-                                @if ($errors->has('verifycode'))
+                                @if ($errors->has('captcha'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('verifycode') }}</strong>
+                                        <strong>{{ $errors->first('captcha') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -136,7 +137,8 @@
                             <label for="verifycode_img" class="col-sm-2 control-label"></label>
 
                             <div class="col-md-6">
-                                <img src="getCode" onclick="this.src=this.src+&#39;getCode&#39;" height="40">
+                                <img src="{{ url('/getCaptcha') }}"
+                                     onclick="this.src='{{url('/getCaptcha')}}?'+Math.random()" height="40">
 
                                 @if ($errors->has('verifycode_img'))
                                     <span class="help-block">
@@ -146,7 +148,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="verifycode" class="col-sm-2 control-label"></label>
+                            <label for="servItems" class="col-sm-2 control-label"></label>
                             <div class="col-md-6">
                                 <label>
                                     <input type="checkbox" value="" name="servItems">
@@ -171,54 +173,57 @@
 
 <script type="text/javascript">
     function chkreg() {
-        var nickname = $('input[name=nickname]').val();
-        var paswrd = $('input[name=paswrd]').val();
-        var conf = $('input[name=conf]').val();
+        var name = $('input[name=name]').val();
+        var paswrd = $('input[name=password]').val();
+        var conf = $('input[name=password_confirmation]').val();
         var realname = $('input[name=realname]').val();
-        var phone = $('input[name=phone]').val();
+        var mobile = $('input[name=mobile]').val();
         var idcard = $('input[name=idcard]').val();
         var email = $('input[name=email]').val();
-        var code = $('input[name=code]').val();
+        var captcha = $('input[name=captcha]').val();
         var servItems = $('input[name=servItems]').is(':checked');
 
-        if (nickname == '') {
+        if (name == '') {
             alert('用户名不能为空');
-            $('input[name=nickname]').addClass('error').focus();
+            $('input[name=name]').addClass('error').focus();
             return false;
         } else {
-            $('input[name=nickname]').removeClass('error').focus();
+            $('input[name=name]').removeClass('error').focus();
         }
 
         if (paswrd == '') {
             alert('密码不能为空');
-            $('input[name=paswrd]').addClass('error').focus();
+            $('input[name=password]').addClass('error').focus();
+            return false;
+        } else if (paswrd.length < 6) {
+            alert('密码不能少于六位');
             return false;
         } else {
-            $('input[name=paswrd]').removeClass('error').focus();
+            $('input[name=password]').removeClass('error').focus();
         }
 
         if (conf == '') {
             alert('确认密码不能为空');
-            $('input[name=conf]').addClass('error').focus();
+            $('input[name=password_confirmation]').addClass('error').focus();
             return false;
         } else {
-            $('input[name=conf]').removeClass('error').focus();
+            $('input[name=password_confirmation]').removeClass('error').focus();
         }
 
-        if (phone == '') {
+        if (mobile == '') {
             alert('手机号不能为空');
-            $('input[name=phone]').addClass('error').focus();
+            $('input[name=mobile]').addClass('error').focus();
             return false;
         } else {
-            $('input[name=phone]').removeClass('error').focus();
+            $('input[name=mobile]').removeClass('error').focus();
         }
 
         if (conf !== paswrd) {
             alert('两次密码不一致');
-            $('input[name=conf]').addClass('error').focus();
+            $('input[name=password_confirmation]').addClass('error').focus();
             return false;
         } else {
-            $('input[name=conf]').removeClass('error').focus();
+            $('input[name=password_confirmation]').removeClass('error').focus();
         }
 
         if (idcard == '') {
@@ -229,7 +234,7 @@
             $('input[name=idcard]').removeClass('error').focus();
         }
 
-        var idcard_reg = /^\d{6}(18|19|20)?\d{2}(0[1-9]|1[12])(0[1-9]|[12]\d|3[01])\d{3}(\d|X)$/i;
+        var idcard_reg = /^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)|(^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{2}$/i;
         if (!idcard_reg.test(idcard)) {
             alert('身份证号格式错误');
             $('input[name=idcard]').addClass('error').focus();
@@ -246,15 +251,14 @@
             $('input[name=email]').removeClass('error').focus();
         }
 
-        if (code == '') {
+        if (captcha == '') {
             alert('验证码不能为空');
-            $('input[name=code]').addClass('error').focus();
+            $('input[name=captcha]').addClass('error').focus();
             return false;
         } else {
-            $('input[name=code]').removeClass('error').focus();
+            $('input[name=captcha]').removeClass('error').focus();
         }
-
-        if (!servItems) {
+        if (servItems == false) {
             alert('未勾选同意条款');
             return false;
         }

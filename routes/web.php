@@ -17,6 +17,7 @@ Route::post('/login', 'Auth\LoginController@login');
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/register', 'Auth\RegisterController@showRegistrationForm');
 Route::post('/register', 'Auth\RegisterController@register');
+Route::get('/getCaptcha', 'Auth\RegisterController@getCaptcha');
 
 
 // Password Reset Routes...
