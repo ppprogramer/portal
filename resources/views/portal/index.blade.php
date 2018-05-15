@@ -101,8 +101,8 @@
                     <div class="about-text">
                         <ul class="withArrow">
                             <li><a href="javascript:article(1,&#39;运营页游平台你不得不知道的五件事&#39;);">运营页游平台你不得不知道的五件事</a></li>
-                            <li><a href="javascript:article(2,&#39;如何运营游戏？&#39;);">如何运营游戏？</a></li>
-                            <li><a href="javascript:article(3,&#39;游戏运营数据基本知识&#39;);">游戏运营数据基本知识</a></li>
+                            {{--<li><a href="javascript:article(2,&#39;如何运营游戏？&#39;);">如何运营游戏？</a></li>--}}
+                            {{--<li><a href="javascript:article(3,&#39;游戏运营数据基本知识&#39;);">游戏运营数据基本知识</a></li>--}}
                         </ul>
                     </div>
                 </div>
@@ -142,7 +142,7 @@
                 shadeClose: true,
                 shade: 0.8,
                 area: ['730px', '466px'],
-                content: '/portal/frame/game?id='+id //iframe的url
+                content: 'http://www.yx155.com/index.php/Home/Index/game/id/'+id //iframe的url
             });
         }
         function article(id, title) {

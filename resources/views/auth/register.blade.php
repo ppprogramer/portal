@@ -347,7 +347,7 @@
                 shadeClose: true,
                 shade: 0.8,
                 area: ['500px', '90%'],
-                content: '/portal/frame/article?type='+type         //iframe的url
+                content: '/portal/frame/article/type?type='+type         //iframe的url
             });
         }
     </script>
