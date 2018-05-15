@@ -30,4 +30,14 @@ class HomeController extends Controller
     {
         return view('portal.index');
     }
+
+    public function portalFrameGame()
+    {
+        dd(\request()->all());
+    }
+
+    public function portalFrameArticle()
+    {
+        dd(\request()->all());
+    }
 }

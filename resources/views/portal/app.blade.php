@@ -33,7 +33,7 @@
             shadeClose: true,
             shade: 0.8,
             area: ['500px', '90%'],
-            content: '/index.php/Home/Index/'+type //iframe的url
+            content: '/portal/frame/game?type='+type //iframe的url
         });
     }
 </script>

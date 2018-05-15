@@ -142,7 +142,7 @@
                 shadeClose: true,
                 shade: 0.8,
                 area: ['730px', '466px'],
-                content: '/index.php/Home/Index/game/id/'+id //iframe的url
+                content: '/portal/frame/game?id='+id //iframe的url
             });
         }
         function article(id, title) {
