@@ -40,4 +40,9 @@ class HomeController extends Controller
     {
         dd(\request()->all());
     }
+
+    public function portalFrameArticleDetail()
+    {
+        dd(\request()->all());
+    }
 }

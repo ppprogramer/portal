@@ -14,6 +14,7 @@
 Route::get('/', 'HomeController@portal');
 Route::get('/portal/frame/game', 'HomeController@portalFrameGame');
 Route::get('/portal/frame/article', 'HomeController@portalFrameArticle');
+Route::get('/portal/frame/article/detail', 'HomeController@portalFrameArticleDetail');
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
 Route::get('/logout', 'Auth\LoginController@logout');

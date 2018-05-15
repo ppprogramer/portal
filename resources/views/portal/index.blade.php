@@ -152,7 +152,7 @@
                 shadeClose: true,
                 shade: 0.8,
                 area: ['500px', '90%'],
-                content: '/index.php/Home/Index/article/id/' + id //iframe的url
+                content: '/portal/frame/article/detail?id='+id //iframe的url
             });
         }
     </script>
