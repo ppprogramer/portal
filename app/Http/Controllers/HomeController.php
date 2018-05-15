@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
-use Illuminate\Http\Request;
+use App\Models\Games;
 
 class HomeController extends Controller
 {
@@ -29,7 +29,9 @@ class HomeController extends Controller
 
     public function portal()
     {
-        return view('portal.index');
+        $games = Games::select(['id', 'name', 'desc', 'picture_path', 'url'])->where('status', 1)->orderBy('id', 'asc')->limit(6)->get();
+        $newsList = Article::select(['id', 'title'])->where('cate_id', 1)->orderBy('id', 'desc')->limit(10)->get();
+        return view('portal.index', ['news' => $newsList, 'games' => $games]);
     }
 
     public function portalFrameGame()

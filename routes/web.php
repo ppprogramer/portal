@@ -12,7 +12,6 @@
 */
 
 Route::get('/', 'HomeController@portal');
-Route::get('/portal/frame/game', 'HomeController@portalFrameGame');
 Route::get('/portal/frame/article/type', 'HomeController@portalFrameArticle');
 Route::get('/portal/frame/article/detail', 'HomeController@portalFrameArticleDetail');
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');

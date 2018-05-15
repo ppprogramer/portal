@@ -163,6 +163,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Mews\Captcha\CaptchaServiceProvider::class,
+        Encore\Admin\Providers\AdminServiceProvider::class,
 
         /*
          * Package Service Providers...
