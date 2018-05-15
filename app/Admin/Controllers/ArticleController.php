@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Article;
+use App\Models\ArticleCate;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Facades\Admin;
@@ -94,6 +95,7 @@ class ArticleController extends Controller
             $form->display('id', 'ID');
             $form->text('title', '标题');
             $form->editor('content', '内容');
+            $form->select('cate_id', '一级类型')->options(ArticleCate::pluck('name', 'id'));
             $form->hidden('author');
             $form->hidden('cate_id');
             $form->hidden('create_time');
@@ -101,7 +103,7 @@ class ArticleController extends Controller
             $form->display('updated_at', 'Updated At');
             $form->saving(function ($form) {
                 $form->author = 'cw';
-                $form->cate_id = 0;
+//                $form->cate_id = 0;
                 $form->create_time = time();
             });
         });
@@ -119,6 +121,7 @@ class ArticleController extends Controller
             $form->display('id', 'ID');
             $form->text('title', '标题');
             $form->editor('content', '内容');
+            $form->select('pid', '一级类型')->options(ArticleCate::pluck('name', 'id'));
             $form->hidden('author');
             $form->hidden('cate_id');
             $form->hidden('create_time');
