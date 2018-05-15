@@ -79,8 +79,11 @@
                 <div class="col-md-12 col-sm-12">
                     <h3>关于我们</h3>
                     <p>
-                        广州铭晟网络科技有限公司于2017年注册成立，是专业的网络棋牌游戏开发和运营公司。铭晟科技开发商业务涉及棋牌游戏、棋牌游戏平台、棋牌游戏开发、管理软件开发、棋牌游戏软件开发等，公司位于广东省广州市。铭晟科技始终坚持自主研发，已开发完成德晟棋牌等棋牌类游戏。
-                        我们全力为您倾心打造精品棋牌游戏平台！</p>
+                        广州快鱼科技有限公司成立于2015年，自2015年成立以来，公司一直专注于新媒体运营，目前已发展成为具有1400多万微信公众号粉丝。业务面涉及：娱乐、文化、时尚、汽车、科技、母婴、美食、原创动漫、游戏、电商等多个领域的内容创作。
+
+                        公司通过规模化、多渠道整合新潮内容和优质的传媒产业链。依托自媒体业务，致力于“资源整合、品牌运营、市场内驱、合作共赢”，致力于将公司打造成为国内最具有影响力的新媒体产业平台。
+
+                        目前公司致力于发展游戏和电商业务，目前电商业务发展呈现逐步上升的趋势，且已经取得了不错的业绩！</p>
                 </div>
             </div>
         </div>
@@ -123,11 +126,11 @@
                 <div class="col-md-6 col-sm-6">
                     <div class="about-text">
                         <ul class="withArrow">
-                            <li><span class="fa fa-angle-right"></span>名称：广州铭晟网络科技有限公司</li>
-                            <li><span class="fa fa-angle-right"></span>地址：广州市天河区东圃大马路87号之一第二层（220房之3）</li>
-                            <li><span class="fa fa-angle-right"></span>固话：020-38399077</li>
-                            <li><span class="fa fa-angle-right"></span>电话：13975167651</li>
-                            <li><span class="fa fa-angle-right"></span>邮箱：3308135040@qq.com</li>
+                            <li><span class="fa fa-angle-right"></span>名称：广州快鱼科技有限公司</li>
+                            <li><span class="fa fa-angle-right"></span>地址：广州市天河区中西大道1132号汇鑫大厦五楼518</li>
+                            <li><span class="fa fa-angle-right"></span>固话：020-38939825</li>
+                            <li><span class="fa fa-angle-right"></span>电话：18279409761</li>
+                            <li><span class="fa fa-angle-right"></span>邮箱：ceo@qt135.com</li>
                         </ul>
                     </div>
                 </div>
