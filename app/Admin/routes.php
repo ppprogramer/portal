@@ -12,6 +12,7 @@ Route::group([
 
     $router->get('/', 'HomeController@index');
 
-    $router->resource('article', ArticleController::class);
     $router->resource('games', GamesController::class);
+    $router->resource('article', ArticleController::class);
+    $router->resource('articleCate', ArticleCateController::class);
 });

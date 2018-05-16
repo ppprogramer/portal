@@ -2,7 +2,6 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\Article;
 use App\Models\ArticleCate;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -11,7 +10,7 @@ use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
 
-class ArticleController extends Controller
+class ArticleCateController extends Controller
 {
     use ModelForm;
 
@@ -71,13 +70,11 @@ class ArticleController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(Article::class, function (Grid $grid) {
+        return Admin::grid(ArticleCate::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-            $grid->title('文章标题');
-            $grid->content('内容')->display(function () {
-                return str_limit(strip_tags($this->content), 50);
-            });
+            $grid->name('名称');
+
             $grid->created_at('创建时间');
             $grid->updated_at('更新时间');
         });
@@ -90,19 +87,16 @@ class ArticleController extends Controller
      */
     protected function form()
     {
-        return Admin::form(Article::class, function (Form $form) {
+        return Admin::form(ArticleCate::class, function (Form $form) {
 
             $form->display('id', 'ID');
-            $form->text('title', '标题');
-            $form->editor('content', '内容');
-            $form->select('cate_id', '类型')->options(ArticleCate::pluck('name', 'id'));
-            $form->hidden('author');
+            $form->text('name','名称')->rules('required');
+            $form->hidden('pid');
             $form->hidden('create_time');
             $form->display('created_at', '创建时间');
             $form->display('updated_at', '更新时间');
             $form->saving(function ($form) {
-                $form->author = 'cw';
-                $form->cate_id = (int)$form->cate_id;
+                $form->pid = 0;
                 $form->create_time = time();
             });
         });
@@ -116,18 +110,11 @@ class ArticleController extends Controller
     //编辑
     protected function editForm()
     {
-        return Admin::form(Article::class, function (Form $form) {
+        return Admin::form(ArticleCate::class, function (Form $form) {
             $form->display('id', 'ID');
-            $form->text('title', '标题');
-            $form->editor('content', '内容');
-            $form->select('cate_id', '类型')->options(ArticleCate::pluck('name', 'id'));
-            $form->hidden('author');
-            $form->hidden('create_time');
+            $form->text('name','名称')->rules('required');
             $form->display('created_at', '创建时间');
             $form->display('updated_at', '更新时间');
-            $form->saving(function ($form) {
-                $form->cate_id = (int)$form->cate_id;
-            });
         });
     }
 }
