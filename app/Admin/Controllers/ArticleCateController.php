@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Models\Article;
 use App\Models\ArticleCate;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -90,7 +91,7 @@ class ArticleCateController extends Controller
         return Admin::form(ArticleCate::class, function (Form $form) {
 
             $form->display('id', 'ID');
-            $form->text('name','名称')->rules('required');
+            $form->text('name', '名称')->rules('required');
             $form->hidden('pid');
             $form->hidden('create_time');
             $form->display('created_at', '创建时间');
@@ -112,9 +113,32 @@ class ArticleCateController extends Controller
     {
         return Admin::form(ArticleCate::class, function (Form $form) {
             $form->display('id', 'ID');
-            $form->text('name','名称')->rules('required');
+            $form->text('name', '名称')->rules('required');
             $form->display('created_at', '创建时间');
             $form->display('updated_at', '更新时间');
         });
+    }
+
+    public function destroy($id)
+    {
+        //判断是否有在用
+        $article = Article::where('cate_id', $id)->first();
+        if ($article) {
+            return response()->json([
+                'status' => false,
+                'message' => '有正在使用该类的文章，不能删除!',
+            ]);
+        }
+        if ($this->form()->destroy($id)) {
+            return response()->json([
+                'status' => true,
+                'message' => trans('admin::lang.delete_succeeded'),
+            ]);
+        } else {
+            return response()->json([
+                'status' => false,
+                'message' => trans('admin::lang.delete_failed'),
+            ]);
+        }
     }
 }
