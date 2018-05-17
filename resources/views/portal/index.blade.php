@@ -19,7 +19,7 @@
                             <div class="img"><img src="/uploads{{ $game->picture_path }}"></div>
                             <div class="info-blocks-in">
                                 <h3>
-                                    <a href='javascript:opengames("{{ $game->id }}",&#39;{{ $game->name }}&#39;);'>{{ $game->name }}</a>
+                                    <a href='javascript:opengames("{{ $game->url }}",&#39;{{ $game->name }}&#39;);'>{{ $game->name }}</a>
                                 </h3>
                                 {!! $game->desc !!}
                             </div>
@@ -159,14 +159,14 @@
         </div>
     </section>
     <script>
-        function opengames(id, name) {
+        function opengames(url, name) {
             layer.open({
                 type: 2,
                 title: name,
                 shadeClose: true,
                 shade: 0.8,
                 area: ['730px', '466px'],
-                content: 'http://www.yx155.com/index.php/Home/Index/game/id/' + id //iframe的url
+                content: url //iframe的url
             });
         }
 
