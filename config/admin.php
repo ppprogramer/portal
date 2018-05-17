@@ -53,7 +53,7 @@ return [
             'file'   => 'file',
         ],
 
-        'host' => 'http://www.ky.cw/uploads',
+        'host' => env('APP_URL').'/uploads',
     ],
 
     /*
