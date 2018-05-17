@@ -11,6 +11,8 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index');
+    $router->get('/auth', 'HomeController@index');
+    $router->put('/{home}', 'HomeController@update');
 
     $router->resource('games', GamesController::class);
     $router->resource('article', ArticleController::class);

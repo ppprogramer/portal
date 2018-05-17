@@ -3,6 +3,8 @@
 namespace App\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
+use Encore\Admin\Auth\Database\Administrator;
+use Encore\Admin\Controllers\ModelForm;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Column;
 use Encore\Admin\Layout\Content;
@@ -18,9 +20,12 @@ use Encore\Admin\Widgets\Collapse;
 use Encore\Admin\Widgets\InfoBox;
 use Encore\Admin\Widgets\Tab;
 use Encore\Admin\Widgets\Table;
+use Encore\Admin\Form;
 
 class HomeController extends Controller
 {
+    use ModelForm;
+
     public function index()
     {
         return Admin::content(function (Content $content) {
@@ -110,6 +115,13 @@ class HomeController extends Controller
             ];
 
             $content->row((new Box('Table', new Table($headers, $rows)))->style('info')->solid());
+        });
+    }
+
+    public function form()
+    {
+        return Administrator::form(function (Form $form) {
+            $form->image('avatar', trans('admin::lang.avatar'));
         });
     }
 }
