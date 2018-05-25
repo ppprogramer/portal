@@ -38,10 +38,10 @@ class UserAccessLogController extends Controller
             $grid->id('ID')->sortable();
             $grid->user_id('用户名')->display(function () {
                 return $this->user_id == 0 ? '游客' : User::find($this->user_id)->email;
-            });
-            $grid->ip('IP');
-            $grid->add_time();
-            $grid->url('URL');
+            })->label('danger');
+            $grid->ip('IP')->label('info');
+            $grid->add_time('时间')->label('default');
+            $grid->url('URL')->label('success');
         });
     }
 }
