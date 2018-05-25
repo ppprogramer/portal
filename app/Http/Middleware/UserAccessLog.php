@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class UserAcccessLog
+class UserAccessLog
 {
     /**
      * Handle an incoming request.
@@ -19,12 +19,15 @@ class UserAcccessLog
     {
         $user = Auth::user();
 
+        $user_id = $user ? $user->id : 0;
+
         $ip = $request->getClientIp();
         $data = [
-            'user_id' => $user->id,
+            'user_id' => $user_id,
             'ip' => $ip,
-            'url' => $request->url(),
+            'url' => $request->getRequestUri(),
             'add_time' => time(),
+//            'url' => $request->url(),
         ];
         DB::table('user_access_log')->insert($data);
         return $next($request);

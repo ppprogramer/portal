@@ -11,15 +11,17 @@
 |
 */
 
-Route::get('/', 'HomeController@portal');
-Route::get('/portal/frame/article/type', 'HomeController@portalFrameArticle');
-Route::get('/portal/frame/article/detail', 'HomeController@portalFrameArticleDetail');
-Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('/login', 'Auth\LoginController@login');
-Route::get('/logout', 'Auth\LoginController@logout');
-Route::get('/register', 'Auth\RegisterController@showRegistrationForm');
-Route::post('/register', 'Auth\RegisterController@register');
-Route::get('/getCaptcha', 'Auth\RegisterController@getCaptcha');
+Route::group(['middleware' => ['web','user_access_log']], function () {
+    Route::get('/', 'HomeController@portal');
+    Route::get('/portal/frame/article/type', 'HomeController@portalFrameArticle');
+    Route::get('/portal/frame/article/detail', 'HomeController@portalFrameArticleDetail');
+    Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+    Route::post('/login', 'Auth\LoginController@login');
+    Route::get('/logout', 'Auth\LoginController@logout');
+    Route::get('/register', 'Auth\RegisterController@showRegistrationForm');
+    Route::post('/register', 'Auth\RegisterController@register');
+    Route::get('/getCaptcha', 'Auth\RegisterController@getCaptcha');
+});
 
 
 // Password Reset Routes...
