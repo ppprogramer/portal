@@ -35,6 +35,10 @@ class UserAccessLogController extends Controller
     {
         return Admin::grid(UserAccessLog::class, function (Grid $grid) {
 
+            $grid->disableBatchDeletion();
+            $grid->disableExport();
+            $grid->disableActions();
+
             $grid->id('ID')->sortable();
             $grid->user_id('用户名')->display(function () {
                 return $this->user_id == 0 ? '游客' : User::find($this->user_id)->email;
