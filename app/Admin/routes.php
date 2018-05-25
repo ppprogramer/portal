@@ -15,6 +15,7 @@ Route::group([
     $router->put('/{home}', 'HomeController@update');
     $router->get('/user/access/log', 'UserAccessLogController@index');
 
+    $router->resource('keyword', KeywordController::class);
     $router->resource('games', GamesController::class);
     $router->resource('article', ArticleController::class);
     $router->resource('articleCate', ArticleCateController::class);
