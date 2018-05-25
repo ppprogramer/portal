@@ -93,9 +93,9 @@ class ArticleController extends Controller
         return Admin::form(Article::class, function (Form $form) {
 
             $form->display('id', 'ID');
-            $form->text('title', '标题');
-            $form->editor('content', '内容');
-            $form->select('cate_id', '类型')->options(ArticleCate::pluck('name', 'id'));
+            $form->text('title', '标题')->rules('required');
+            $form->editor('content', '内容')->rules('required');
+            $form->select('cate_id', '类型')->options(ArticleCate::pluck('name', 'id'))->rules('required');
             $form->hidden('author');
             $form->hidden('create_time');
             $form->display('created_at', '创建时间');
@@ -118,9 +118,9 @@ class ArticleController extends Controller
     {
         return Admin::form(Article::class, function (Form $form) {
             $form->display('id', 'ID');
-            $form->text('title', '标题');
-            $form->editor('content', '内容');
-            $form->select('cate_id', '类型')->options(ArticleCate::pluck('name', 'id'));
+            $form->text('title', '标题')->rules('required');
+            $form->editor('content', '内容')->rules('required');
+            $form->select('cate_id', '类型')->options(ArticleCate::pluck('name', 'id'))->rules('required');
             $form->hidden('author');
             $form->hidden('create_time');
             $form->display('created_at', '创建时间');
