@@ -38,19 +38,6 @@ class Test_cw extends Command
      */
     public function handle()
     {
-//        $contents = file_get_contents('C:\Users\mayn\Desktop\tedst.txt');
-        $file = fopen('C:\Users\mayn\Desktop\tedst.txt', "r");
-        $user = array();
-        $i = 0;
-        while (!feof($file)) {
-            $user[$i] = fgets($file);
-            $i++;
-        }
-        fclose($file);
-        $user = array_filter($user);
-        foreach ($user as $item) {
-            $item = trim($item);
-            Keyword::create(['keyword' => $item]);
-        }
+        //
     }
 }
